@@ -1,24 +1,27 @@
 PlayerGroupBox:AddButton('Reset Character', function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/DuckysADM/Force-Reset/refs/heads/main/Force%20Reset"))
+   -- Ensure the script loads and executes properly by invoking the loadstring
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/DuckysADM/Force-Reset/refs/heads/main/Force%20Reset"))()
 end, { Tooltip = 'Resets your character' })
 
+-- Wait until the game is fully loaded
 repeat
     wait()
 until game:IsLoaded()
 
-local Players = game:service('Players')
+local Players = game:GetService('Players')
 local LocalPlayer = Players.LocalPlayer
 repeat
     wait()
 until LocalPlayer.Character
 
-local UserInputService = game:service('UserInputService')
-local RunService = game:service('RunService')
+local UserInputService = game:GetService('UserInputService')
+local RunService = game:GetService('RunService')
 
 getgenv().Multiplier = 5
 local SpeedEnabled = false
 local ToggleSpeed = false
 
+-- Add toggle for speed boost
 PlayerGroupBox:AddToggle('SpeedToggle', {
     Text = 'Enable Speed',
     Default = false,
@@ -28,6 +31,7 @@ PlayerGroupBox:AddToggle('SpeedToggle', {
     end
 })
 
+-- Handle user input for speed toggle (C key)
 UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.C and ToggleSpeed then
         SpeedEnabled = not SpeedEnabled
@@ -40,6 +44,7 @@ UserInputService.InputBegan:Connect(function(input)
     end
 end)
 
+-- Slider to adjust walkspeed multiplier
 PlayerGroupBox:AddSlider('WalkspeedMultiplier', {
     Text = 'Speed Amount',
     Default = 5,
@@ -49,3 +54,5 @@ PlayerGroupBox:AddSlider('WalkspeedMultiplier', {
     Tooltip = 'Adjusts the walkspeed multiplier',
     Callback = function(Value)
         getgenv().Multiplier = Value
+    end
+})
