@@ -1,4 +1,3 @@
-local PlayerGroupBox = Tabs.Player:AddLeftGroupbox('Player Actions')
 PlayerGroupBox:AddButton('Reset Character', function()
    loadstring(game:HttpGet("https://raw.githubusercontent.com/DuckysADM/Force-Reset/refs/heads/main/Force%20Reset"))
 end, { Tooltip = 'Resets your character' })
