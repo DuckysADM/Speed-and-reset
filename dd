@@ -1,8 +1,3 @@
-getgenv().AimlockEnabled = Value -- Set Aimlock state based on toggle
-        print("Aimlock Enabled:", getgenv().AimlockEnabled) -- Debug print
-    end
-})
-
 -- Aimlock Configuration
 getgenv().OldAimPart = "Head"
 getgenv().AimPart = "Head" -- For R15 Games: {UpperTorso, LowerTorso, HumanoidRootPart, Head} | For R6 Games: {Head, Torso, HumanoidRootPart}  
