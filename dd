@@ -1,12 +1,4 @@
-local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Aim 🎯')
-
--- Replace ExampleToggle with Aimlock Toggle
-LeftGroupBox:AddToggle('Aim 🎯', {
-    Text = 'Camlock (Q)',
-    Default = false, -- Default state (off)
-    Tooltip = 'Toggle Camlock',
-    Callback = function(Value)
-        getgenv().AimlockEnabled = Value -- Set Aimlock state based on toggle
+getgenv().AimlockEnabled = Value -- Set Aimlock state based on toggle
         print("Aimlock Enabled:", getgenv().AimlockEnabled) -- Debug print
     end
 })
